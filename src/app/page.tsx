@@ -38,7 +38,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn
+          {/* Learn */}
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
