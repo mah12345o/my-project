@@ -1,10 +1,14 @@
-import React from "react";
+import { ArticleCard } from "@/components/pages/ArticleCard";
+import ArticleContent from "@/components/pages/ArticleContent";
+import TourGuides from "@/components/pages/TourGuides";
+import { articles } from "@/const";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function BlogPage() {
   return (
     <main>
-      <div className="max_section">
+      <div className="">
         <p className="text-sm text-gray-400">HOME / ARTICLES /</p>
         <h1 className="text-3xl font-bold mt-2 mb-6">
           The Ultimate Guide to Full-Body Workouts
@@ -22,22 +26,21 @@ export default async function BlogPage() {
         </div>
       </div>
 
-      <div className="flex w-full max_section">
-        <div className="flex justify-between w-full bg-red-200 items-center mb-6">
-          <div className="flex items-center space-x-2">
-            <Image
-              src="/avatar.jpg"
-              alt="Alex Carter"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
-            <p className="text-sm font-medium">Alex Carter</p>
-          </div>
-          <p className="text-sm text-gray-500">23 JANUARY 2025</p>
-        </div>
+      <div className="flex">
+        <ArticleContent />
 
-        <div className="bg-amber-500 w-[40rem]">2</div>
+        <div className="bg-amber-500">
+          <div>
+            <Link href="/">Explore More</Link>
+            <div>{articles?.map((el) => <ArticleCard key={el?.title} />)}</div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Tour Guides
+            </h2>
+            <div>{articles?.map((el) => <TourGuides key={el?.title} />)}</div>
+          </div>
+        </div>
       </div>
     </main>
   );
