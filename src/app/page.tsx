@@ -1,3 +1,5 @@
+import BlogPage from "./(pages)/blog/[slug]/page";
+
 export default function Home() {
-  return <div>tesxt</div>;
+  return <BlogPage />;
 }
