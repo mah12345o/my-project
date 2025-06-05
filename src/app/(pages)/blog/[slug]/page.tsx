@@ -26,59 +26,68 @@ export default async function BlogPage({
 
   return (
     <main>
-      <div className="">
-        <p className="text-sm text-gray-400">HOME / ARTICLES /</p>
-        <h1 className="text-3xl font-bold mt-2 mb-6">{post?.title}</h1>
+      <div className="py-10 text-center">
+        <p className="text-sm mb-3">
+          <span className="text-[#262D4D] font-medium">HOME</span>
+          <span className="text-gray-700"> / ARTICLES /</span>
+        </p>
+
+        <h1 className="text-3xl text-[##10152E] font-semibold">
+          {post?.title}
+        </h1>
       </div>
 
-      <div className="w-full h-96 relative mb-10">
+      <div className="w-full h-[40rem] relative mb-5">
         <Image
           src={post.image}
           alt="Image"
+          priority
           layout="fill"
           objectFit="cover"
           className="rounded-md"
         />
       </div>
 
-      <div className="flex w-full">
-        <article className="flex flex-col w-full">
-          <ArticleContent
-            authorName={post?.author}
-            content={post?.content}
-            date={post?.date}
-          />
-          <AboutAuthorCarousel />
-        </article>
-        <div>
-          <div>
-            <Link href="/">Explore More</Link>
+      <div>
+        <div className="flex gap-10">
+          <article className="flex flex-col">
+            <ArticleContent
+              autherIcon={post?.autherIcon}
+              authorName={post?.author}
+              content={post?.content}
+              date={post?.date}
+            />
+            <AboutAuthorCarousel />
+          </article>
+          <div className="w-[22rem]">
             <div>
-              {exploreMoreArticles?.map((el) => (
-                <ArticleCard
-                  image={el?.image}
-                  authorName={el?.author}
-                  content={el?.content}
-                  date={el?.date}
-                  slug={el?.slug}
-                  key={el?.title}
-                />
-              ))}
+              <Link className="text-[#10152E] text-xl font-semibold" href="/">
+                Explore More
+              </Link>
+              <div className="mt-9">
+                {exploreMoreArticles?.map((el) => (
+                  <ArticleCard
+                    image={el?.image}
+                    authorName={el?.author}
+                    content={el?.content}
+                    date={el?.date}
+                    slug={el?.slug}
+                    key={el?.title}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-              Tour Guides
-            </h2>
-            <div>
+            <div className="mt-8">
+              <h2 className="text-[#10152E] mb-3 text-xl font-semibold">
+                Tour Guides
+              </h2>
               <TourGuides />
             </div>
           </div>
         </div>
+        <CommentsSection />
+        <RelatedArticles />
       </div>
-
-      <CommentsSection />
-      <RelatedArticles />
     </main>
   );
 }

@@ -77,7 +77,7 @@ export default function CommentsSection() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="w-full mx-auto px-4 py-8">
       <h2 className="text-xl font-semibold mb-6">💬 Comments</h2>
 
       {isPending && (

@@ -38,7 +38,7 @@
 
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
-import { HiLocationMarker } from "react-icons/hi";
+import { MdLocationOn } from "react-icons/md";
 
 const guides = [
   {
@@ -66,14 +66,12 @@ const guides = [
 
 export default function TourGuides() {
   return (
-    <div className="bg-gray-50 max-w-md mx-auto p-6 rounded-lg shadow">
-      <h2 className="text-xl font-semibold text-blue-900 mb-6">Tour Guides</h2>
-
+    <div className="max-w-md mx-auto py-6">
       <div className="space-y-6">
         {guides?.map((guide) => (
           <div key={guide.id}>
             <div className="flex items-center gap-4">
-              <div className="size-12 relative">
+              <div className="size-14 relative">
                 <Image
                   src={guide.image}
                   alt={guide.name}
@@ -82,9 +80,11 @@ export default function TourGuides() {
                 />
               </div>
               <div>
-                <p className="font-medium text-gray-900">{guide.name}</p>
-                <div className="flex items-center text-gray-500 text-sm">
-                  <HiLocationMarker className="mr-1" />
+                <p className="font-normal text-[1rem] text-black">
+                  {guide.name}
+                </p>
+                <div className="flex items-center font-normal text-gray-500 text-sm">
+                  <MdLocationOn className="mr-1" />
                   <span className="truncate max-w-[180px]">
                     {guide.location}
                   </span>
@@ -93,7 +93,7 @@ export default function TourGuides() {
             </div>
 
             {/* Stars */}
-            <div className="flex items-center gap-1 mt-2 ml-16">
+            <div className="flex items-center gap-1 mt-2">
               {Array.from({ length: 5 }).map((_, index) => (
                 <FaStar
                   key={index}
@@ -109,7 +109,7 @@ export default function TourGuides() {
               </span>
             </div>
 
-            <hr className="my-4" />
+            <hr className="my-4 h-[1px] text-[#DEDEDE]" />
           </div>
         ))}
       </div>

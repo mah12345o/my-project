@@ -39,23 +39,24 @@ const relatedArticles = [
 
 export default function RelatedArticles() {
   return (
-    <div className="bg-gray-50 py-10 px-4 md:px-8">
+    <div className="bg-[#F5F5F6] py-12 w-full px-4 md:px-8">
       <h2 className="text-3xl font-semibold text-center text-blue-900 mb-10">
         Related articles
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-[78%] mx-auto">
         {relatedArticles?.map((item) => (
           <div
             key={item?.id}
-            className="bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition"
+            className="overflow-hidden hover:shadow-lg transition"
           >
-            <Image
-              src={item?.image || "/images/default.jpg"}
-              alt={item?.title}
-              width={400}
-              height={300}
-              className="w-full h-48 object-cover"
-            />
+            <div className="relative size-56">
+              <Image
+                src={item?.image || "/images/default.jpg"}
+                alt={item?.title}
+                fill
+                className="object-cover"
+              />
+            </div>
             <div className="p-4">
               <h3 className="text-lg font-semibold text-gray-900 mb-1">
                 {item?.title}
