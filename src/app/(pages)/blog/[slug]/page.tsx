@@ -1,5 +1,7 @@
+import CommentsSection from "@/components/Comments";
 import { ArticleCard } from "@/components/pages/ArticleCard";
 import ArticleContent from "@/components/pages/ArticleContent";
+import AboutAuthorCarousel from "@/components/pages/common/Slider";
 import TourGuides from "@/components/pages/TourGuides";
 import { articles } from "@/const";
 import Image from "next/image";
@@ -42,13 +44,15 @@ export default async function BlogPage({
         </div>
       </div>
 
-      <div className="flex">
-        <ArticleContent
-          authorName={post?.author}
-          content={post?.content}
-          date={post?.date}
-        />
-
+      <div className="flex w-full">
+        <div className="flex flex-col w-full">
+          <ArticleContent
+            authorName={post?.author}
+            content={post?.content}
+            date={post?.date}
+          />
+          <AboutAuthorCarousel />
+        </div>
         <div className="bg-amber-500">
           <div>
             <Link href="/">Explore More</Link>
@@ -73,6 +77,7 @@ export default async function BlogPage({
           </div>
         </div>
       </div>
+      <CommentsSection />
     </main>
   );
 }

@@ -10,7 +10,7 @@ export default function ArticleContent({
   date: string;
 }) {
   return (
-    <article className="prose lg:prose-lg max-w-3xl mx-auto py-8 px-4 bg-white">
+    <article className="mx-auto py-8 px-4 bg-white">
       {/* Author & Date */}
       <div className="flex justify-between items-center mb-6 border-b pb-4">
         <div className="flex items-center space-x-3">
