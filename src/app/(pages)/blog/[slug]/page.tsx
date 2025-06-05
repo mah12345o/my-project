@@ -1,15 +1,16 @@
-import CommentsSection from "@/components/Comments";
 import { ArticleCard } from "@/components/pages/ArticleCard";
 import ArticleContent from "@/components/pages/ArticleContent";
-import AboutAuthorCarousel from "@/components/pages/common/Slider";
+import CommentsSection from "@/components/pages/Comments";
+import RelatedArticles from "@/components/pages/RelatedArticles";
+import AboutAuthorCarousel from "@/components/pages/Slider";
 import TourGuides from "@/components/pages/TourGuides";
-import { articles } from "@/const";
+import { exploreMoreArticles } from "@/const";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return articles.map((post) => ({ slug: post.slug }));
+  return exploreMoreArticles?.map((post) => ({ slug: post?.slug }));
 }
 
 export default async function BlogPage({
@@ -19,7 +20,7 @@ export default async function BlogPage({
 }) {
   const { slug } = await params;
 
-  const post = articles?.find((p) => p.slug === slug);
+  const post = exploreMoreArticles?.find((p) => p.slug === slug);
 
   if (!post) return notFound();
 
@@ -27,37 +28,33 @@ export default async function BlogPage({
     <main>
       <div className="">
         <p className="text-sm text-gray-400">HOME / ARTICLES /</p>
-        <h1 className="text-3xl font-bold mt-2 mb-6">
-          {/* The Ultimate Guide to Full-Body Workouts */}
-          {post?.title}
-        </h1>
+        <h1 className="text-3xl font-bold mt-2 mb-6">{post?.title}</h1>
       </div>
-      <div>
-        <div className="w-full h-96 relative mb-10">
-          <Image
-            src={post?.image}
-            alt="Image"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
-          />
-        </div>
+
+      <div className="w-full h-96 relative mb-10">
+        <Image
+          src={post.image}
+          alt="Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-md"
+        />
       </div>
 
       <div className="flex w-full">
-        <div className="flex flex-col w-full">
+        <article className="flex flex-col w-full">
           <ArticleContent
             authorName={post?.author}
             content={post?.content}
             date={post?.date}
           />
           <AboutAuthorCarousel />
-        </div>
-        <div className="bg-amber-500">
+        </article>
+        <div>
           <div>
             <Link href="/">Explore More</Link>
             <div>
-              {articles?.map((el) => (
+              {exploreMoreArticles?.map((el) => (
                 <ArticleCard
                   image={el?.image}
                   authorName={el?.author}
@@ -73,11 +70,15 @@ export default async function BlogPage({
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">
               Tour Guides
             </h2>
-            <div>{articles?.map((el) => <TourGuides key={el?.title} />)}</div>
+            <div>
+              <TourGuides />
+            </div>
           </div>
         </div>
       </div>
+
       <CommentsSection />
+      <RelatedArticles />
     </main>
   );
 }

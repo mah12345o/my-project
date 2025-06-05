@@ -1,10 +1,10 @@
-export const articles = [
+export const exploreMoreArticles = [
   {
     slug: "hello-world",
     title: "Hello World",
     date: "2024-06-01",
     author: "Mahesh Kumar",
-    image: "/images/blog1.png",
+    image: "/icon/blog1.png",
     content: "This is the full content of the Hello World post.",
   },
   {
