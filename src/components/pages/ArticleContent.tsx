@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-export default function ArticleContent() {
+export default function ArticleContent({
+  authorName,
+  // content,
+  date,
+}: {
+  authorName: string;
+  content: string;
+  date: string;
+}) {
   return (
     <article className="prose lg:prose-lg max-w-3xl mx-auto py-8 px-4 bg-white">
       {/* Author & Date */}
@@ -14,10 +22,10 @@ export default function ArticleContent() {
             className="rounded-full"
           />
           <span className="text-gray-700 font-semibold uppercase text-sm">
-            Alex Carter
+            {authorName}
           </span>
         </div>
-        <span className="text-sm text-gray-500 uppercase">23 January 2025</span>
+        <span className="text-sm text-gray-500 uppercase">{date}</span>
       </div>
 
       {/* Content */}

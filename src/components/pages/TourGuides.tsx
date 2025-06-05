@@ -3,7 +3,7 @@ import { FaStar, FaRegStar, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function TourGuides() {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
+    <div className="bg-white p-6 rounded-lg shadow-sm card">
       <div className="space-y-6">
         <div className="flex space-x-4 items-center border-b pb-4">
           <Image
