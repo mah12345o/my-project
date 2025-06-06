@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ArticleContent({
   authorName,
-  content,
+  // content,
   date,
   autherIcon,
 }: {

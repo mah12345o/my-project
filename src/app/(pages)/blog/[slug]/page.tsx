@@ -1,6 +1,7 @@
 import { ArticleCard } from "@/components/pages/ArticleCard";
 import ArticleContent from "@/components/pages/ArticleContent";
 import CommentsSection from "@/components/pages/Comments";
+import Heading from "@/components/pages/common/image/Heading";
 import RelatedArticles from "@/components/pages/RelatedArticles";
 import AboutAuthorCarousel from "@/components/pages/Slider";
 import TourGuides from "@/components/pages/TourGuides";
@@ -26,7 +27,7 @@ export default async function BlogPage({
 
   return (
     <main>
-      <div className="py-10 text-center">
+      <div className="py-8 text-center">
         <p className="text-sm mb-3">
           <span className="text-[#262D4D] font-medium">HOME</span>
           <span className="text-gray-700"> / ARTICLES /</span>
@@ -37,7 +38,7 @@ export default async function BlogPage({
         </h1>
       </div>
 
-      <div className="w-full h-[40rem] relative mb-5">
+      <div className="w-full h-[90vh] relative mb-5">
         <Image
           src={post.image}
           alt="Image"
@@ -48,7 +49,7 @@ export default async function BlogPage({
         />
       </div>
 
-      <div>
+      <div className="layout_padding">
         <div className="flex gap-10">
           <article className="flex flex-col">
             <ArticleContent
@@ -78,16 +79,14 @@ export default async function BlogPage({
               </div>
             </div>
             <div className="mt-8">
-              <h2 className="text-[#10152E] mb-3 text-xl font-semibold">
-                Tour Guides
-              </h2>
+              <Heading title="Tour Guides" />
               <TourGuides />
             </div>
           </div>
         </div>
         <CommentsSection />
-        <RelatedArticles />
       </div>
+      <RelatedArticles />
     </main>
   );
 }

@@ -39,17 +39,17 @@ const relatedArticles = [
 
 export default function RelatedArticles() {
   return (
-    <div className="bg-[#F5F5F6] py-12 w-full px-4 md:px-8">
-      <h2 className="text-3xl font-semibold text-center text-blue-900 mb-10">
+    <div className="bg-[#F5F5F6] layout_padding py-12 px-4 md:px-8 ">
+      <h2 className="text-3xl font-semibold text-center text-[##262D4D] mb-10">
         Related articles
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-[78%] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mx-auto">
         {relatedArticles?.map((item) => (
           <div
             key={item?.id}
             className="overflow-hidden hover:shadow-lg transition"
           >
-            <div className="relative size-56">
+            <div className="relative w-full h-56">
               <Image
                 src={item?.image || "/images/default.jpg"}
                 alt={item?.title}

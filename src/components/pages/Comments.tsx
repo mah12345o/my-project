@@ -9,8 +9,9 @@ import {
   BsEmojiLaughing,
   BsEmojiNeutral,
   BsChatDots,
-  BsTrash,
 } from "react-icons/bs";
+import Heading from "./common/image/Heading";
+import { InputLabel } from "./common/image/InputLabel";
 
 interface Comment {
   id: number;
@@ -31,7 +32,7 @@ export default function CommentsSection() {
       comment:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.",
       rating: 5,
-      avatar: "/images/haerin.jpg",
+      avatar: "/icon/icon1.png",
       date: "22 Jul 2022",
     },
   ]);
@@ -55,7 +56,7 @@ export default function CommentsSection() {
       id: Date.now(),
       ...form,
       rating: emojiRating || 4,
-      avatar: "/images/haerin.jpg",
+      avatar: "/icon/icon2.png",
       date: new Date().toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "short",
@@ -70,16 +71,15 @@ export default function CommentsSection() {
     });
   };
 
-  const handleDelete = (id: number) => {
-    startTransition(() => {
-      setComments((prev) => prev?.filter((c) => c?.id !== id));
-    });
-  };
+  // const handleDelete = (id: number) => {
+  //   startTransition(() => {
+  //     setComments((prev) => prev?.filter((c) => c?.id !== id));
+  //   });
+  // };
 
   return (
-    <div className="w-full mx-auto px-4 py-8">
-      <h2 className="text-xl font-semibold mb-6">💬 Comments</h2>
-
+    <div className="w-full mx-auto px-4 py-12">
+      <Heading title="Comments" />
       {isPending && (
         <p className="text-sm text-blue-500 mb-4 animate-pulse">
           Updating comments...
@@ -89,24 +89,25 @@ export default function CommentsSection() {
       {comments?.map((el) => (
         <div
           key={el?.id}
-          className="border-b pb-4 mb-4 flex justify-between items-start"
+          className="border-b border-[#DEDEDE] pb-6 mb-4 flex justify-between items-start"
         >
           <div className="flex items-start gap-4">
-            <Image
-              src={el.avatar}
-              alt={el.name}
-              width={48}
-              height={48}
-              className="rounded-full object-cover"
-            />
+            <div className="size-14 relative">
+              <Image
+                src={el?.avatar || "/icon/icon2.png"}
+                alt={el?.name}
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
             <div>
               <p className="font-medium">{el.name}</p>
-              <div className="flex items-center gap-1 text-yellow-500 text-sm">
+              <div className="flex items-center gap-1 text-[#FFBB00] text-sm">
                 {Array?.from({ length: 5 })?.map((_, i) => (
                   <FaStar
                     key={i}
                     className={
-                      i < el.rating ? "text-yellow-500" : "text-gray-300"
+                      i < el.rating ? "text-[#FFBB00]" : "text-gray-300"
                     }
                   />
                 ))}
@@ -118,70 +119,100 @@ export default function CommentsSection() {
             </div>
           </div>
           <div className="flex flex-col items-end gap-1 text-right">
-            <p className="text-sm text-gray-400">{el?.date}</p>
-            <button
+            <p className="text-sm font-semibold text-[#757575]">{el?.date}</p>
+            {/* <button
               onClick={() => handleDelete(el?.id)}
               className="text-red-500 text-sm"
               title="Delete"
             >
               <BsTrash />
-            </button>
+            </button> */}
           </div>
         </div>
       ))}
 
-      <h2 className="text-xl font-semibold mt-10 mb-4">📝 Add A Comment</h2>
+      <Heading title="Add A Comment" />
       <form onSubmit={handleAddComment} className="space-y-4">
-        <div className="grid md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full border px-4 py-2 rounded-md bg-gray-50"
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border px-4 py-2 rounded-md bg-gray-50"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col justify-between gap-4">
+            <div>
+              <InputLabel title="Name" />
+              <input
+                type="text"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full  border-nonepx-4 py-2 rounded-md bg-gray-50"
+                required
+              />
+            </div>
+            <div>
+              <InputLabel title="Email" />
+              <input
+                type="email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full border-none px-4 py-2 rounded-md bg-gray-50"
+              />
+            </div>
+          </div>
+          <div>
+            <InputLabel title="Comment" />
+            <textarea
+              placeholder="Search Anything..."
+              value={form.comment}
+              onChange={(e) => setForm({ ...form, comment: e.target.value })}
+              className="w-full h-[78%]  border-none px-4 py-2 rounded-md bg-gray-50"
+              required
+            />
+          </div>
         </div>
 
-        <textarea
-          placeholder="Search Anything..."
-          value={form.comment}
-          onChange={(e) => setForm({ ...form, comment: e.target.value })}
-          rows={4}
-          className="w-full border px-4 py-2 rounded-md bg-gray-50"
-          required
-        ></textarea>
-
         {/* Emoji Rating */}
-        <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center p-2 rounded bg-gray-50 justify-between flex-wrap gap-4">
           <p className="font-medium">Rate The Usefulness Of The Article</p>
-          <div className="flex items-center gap-4 text-xl">
-            <button type="button" onClick={() => setEmojiRating(1)}>
+          <div className="flex  items-center gap-4 text-xl">
+            <button
+              type="button"
+              // className=""
+              className={`text-red-500  ${emojiRating === 1 ? "bg-red-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              onClick={() => setEmojiRating(1)}
+            >
               <BsEmojiFrown
                 className={emojiRating === 1 ? "text-red-500" : ""}
               />
+              {emojiRating == 1 ? " Very bad" : ""}
             </button>
-            <button type="button" onClick={() => setEmojiRating(2)}>
+            <button
+              type="button"
+              // className="text-[#FFBB00]"
+              className={`text-[#FFBB00] ${emojiRating === 2 ? "bg-yellow-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              onClick={() => setEmojiRating(2)}
+            >
               <BsEmojiNeutral
-                className={emojiRating === 2 ? "text-yellow-500" : ""}
+                className={emojiRating === 2 ? "text-[#FFBB00]" : ""}
               />
+              {emojiRating == 2 ? "Bad" : ""}
             </button>
-            <button type="button" onClick={() => setEmojiRating(3)}>
+            <button
+              type="button"
+              // className="text-blue-500"
+              className={`text-blue-500 ${emojiRating === 3 ? "bg-blue-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              onClick={() => setEmojiRating(3)}
+            >
               <BsEmojiSmile
                 className={emojiRating === 3 ? "text-blue-500" : ""}
               />
+              {emojiRating == 3 ? "Average" : ""}
             </button>
-            <button type="button" onClick={() => setEmojiRating(4)}>
+            <button
+              type="button"
+              className={`text-green-500 ${emojiRating === 4 ? "bg-green-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              onClick={() => setEmojiRating(4)}
+            >
               <BsEmojiLaughing
                 className={emojiRating === 4 ? "text-green-500" : ""}
               />
+              {emojiRating == 4 ? "Good" : ""}
             </button>
           </div>
         </div>
@@ -190,7 +221,7 @@ export default function CommentsSection() {
           <button
             type="submit"
             disabled={isPending}
-            className="bg-black text-white px-6 py-2 rounded-md flex items-center gap-2"
+            className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2"
           >
             <BsChatDots /> Send
           </button>

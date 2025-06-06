@@ -11,7 +11,10 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-.max_section {
-  width: 1600px;
-  margin: auto;
+.layout_padding {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+button {
+  cursor: pointer;
 }
