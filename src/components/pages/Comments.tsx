@@ -89,27 +89,27 @@ export default function CommentsSection() {
       {comments?.map((el) => (
         <div
           key={el?.id}
-          className="border-b border-[#DEDEDE] pb-6 mb-4 flex justify-between items-start"
+          className="border-b w-full border-[#DEDEDE] pb-6 mb-4 flex justify-between items-start"
         >
-          <div className="flex items-start gap-4">
-            <div className="size-14 relative">
+          <div className="flex items-start w-full gap-4">
+            <div className="min-h-14 min-w-14 relative">
               <Image
-                src={el?.avatar || "/icon/icon2.png"}
+                src="/icon/icon2.png"
                 alt={el?.name}
                 fill
                 className="rounded-full object-cover"
               />
             </div>
-            <div>
-              <div className="flex sm:flex-row flex-col">
+            <div className="w-full">
+              <div className="flex sm:justify-between sm:flex-row flex-col">
                 <div>
-                  <p className="font-medium">{el.name}</p>
+                  <p className="font-medium">{el?.name}</p>
                   <div className="flex items-center gap-1 text-[#FFBB00] text-sm">
                     {Array?.from({ length: 5 })?.map((_, i) => (
                       <FaStar
                         key={i}
                         className={
-                          i < el.rating ? "text-[#FFBB00]" : "text-gray-300"
+                          i < el?.rating ? "text-[#FFBB00]" : "text-gray-300"
                         }
                       />
                     ))}
@@ -137,7 +137,7 @@ export default function CommentsSection() {
 
       <Heading title="Add A Comment" />
       <form onSubmit={handleAddComment} className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col justify-between gap-4">
             <div>
               <InputLabel title="Name" />
@@ -173,7 +173,9 @@ export default function CommentsSection() {
 
         {/* Emoji Rating */}
         <div className="flex items-center p-2 rounded bg-gray-50 justify-between flex-wrap gap-4">
-          <p className="font-medium">Rate The Usefulness Of The Article</p>
+          <p className="text-sm sm:text-lg font-medium">
+            Rate The Usefulness Of The Article
+          </p>
           <div className="flex text-sm items-center gap-4">
             <button
               type="button"
@@ -210,11 +212,11 @@ export default function CommentsSection() {
           </div>
         </div>
 
-        <div className="flex justify-end gap-4">
+        <div className="flex justify-center sm:justify-end gap-4">
           <button
             type="submit"
             disabled={isPending}
-            className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2"
+            className="bg-black w-full justify-center sm:w-fit text-white px-4 py-2 rounded-lg flex items-center gap-2"
           >
             <BsChatDots /> Send
           </button>

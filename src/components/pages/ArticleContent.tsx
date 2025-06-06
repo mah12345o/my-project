@@ -50,11 +50,9 @@ export default function ArticleContent({
           et magnis dis parturient montes, nascetur ridiculus
         </p>
         <p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus
-          </p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus
         </p>
         {/* Highlighted Section */}
         <blockquote className="italic my-5 border-y border-[#E5E6EA] font-medium text-black p-8">
