@@ -19,7 +19,11 @@ export const ArticleCard = ({
     <Link href={`/blog/${slug}`}>
       <div className="bg-white overflow-hidden">
         <div className="relative w-full">
-          <NextFillImage alt="Image" src={image} className="w-[18.5rem] h-40" />
+          <NextFillImage
+            alt="Image"
+            src={image}
+            className="w-full sm:w-[18.5rem] h-40"
+          />
         </div>
 
         <div className="pb-7 pt-5">

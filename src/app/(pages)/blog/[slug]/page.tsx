@@ -38,19 +38,18 @@ export default async function BlogPage({
         </h1>
       </div>
 
-      <div className="w-full h-[60vh] relative mb-5">
+      <div className="sm:w-[95%] lg:w-full h-[60vh] mx-auto relative mb-5">
         <Image
           src={post.image}
           alt="Image"
           priority
           layout="fill"
           objectFit="cover"
-          className="rounded-md"
         />
       </div>
 
-      <div className="layout_padding">
-        <div className="flex gap-10">
+      <div className="layout_padding px-3 sm:px-6">
+        <div className="flex sm:flex-row flex-col gap-10">
           <article className="flex flex-col">
             <ArticleContent
               autherIcon={post?.autherIcon}
@@ -58,7 +57,9 @@ export default async function BlogPage({
               content={post?.content}
               date={post?.date}
             />
-            <AboutAuthorCarousel />
+            <div className="lg:block hidden">
+              <AboutAuthorCarousel />
+            </div>
           </article>
           <div className="w-[22rem]">
             <div>
@@ -83,6 +84,9 @@ export default async function BlogPage({
               <TourGuides />
             </div>
           </div>
+        </div>
+        <div className="lg:hidden block">
+          <AboutAuthorCarousel />
         </div>
         <CommentsSection />
       </div>

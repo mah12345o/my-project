@@ -43,7 +43,7 @@ export default function RelatedArticles() {
       <h2 className="text-3xl font-semibold text-center text-[##262D4D] mb-10">
         Related articles
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:md:grid-cols-4 gap-6 mx-auto">
         {relatedArticles?.map((item) => (
           <div
             key={item?.id}

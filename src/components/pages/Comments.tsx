@@ -101,25 +101,29 @@ export default function CommentsSection() {
               />
             </div>
             <div>
-              <p className="font-medium">{el.name}</p>
-              <div className="flex items-center gap-1 text-[#FFBB00] text-sm">
-                {Array?.from({ length: 5 })?.map((_, i) => (
-                  <FaStar
-                    key={i}
-                    className={
-                      i < el.rating ? "text-[#FFBB00]" : "text-gray-300"
-                    }
-                  />
-                ))}
-                <span className="text-gray-700 ml-1">
-                  ({el?.rating.toFixed(1)})
-                </span>
+              <div className="flex sm:flex-row flex-col">
+                <div>
+                  <p className="font-medium">{el.name}</p>
+                  <div className="flex items-center gap-1 text-[#FFBB00] text-sm">
+                    {Array?.from({ length: 5 })?.map((_, i) => (
+                      <FaStar
+                        key={i}
+                        className={
+                          i < el.rating ? "text-[#FFBB00]" : "text-gray-300"
+                        }
+                      />
+                    ))}
+                    <span className="text-gray-700 ml-1">
+                      ({el?.rating.toFixed(1)})
+                    </span>
+                  </div>
+                </div>
+                <p className="text-sm font-medium text-[#757575]">{el?.date}</p>
               </div>
               <p className="text-gray-600 text-sm mt-1">{el?.comment}</p>
             </div>
           </div>
           <div className="flex flex-col items-end gap-1 text-right">
-            <p className="text-sm font-semibold text-[#757575]">{el?.date}</p>
             {/* <button
               onClick={() => handleDelete(el?.id)}
               className="text-red-500 text-sm"
