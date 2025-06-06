@@ -2,6 +2,7 @@ import { ArticleCard } from "@/components/pages/ArticleCard";
 import ArticleContent from "@/components/pages/ArticleContent";
 import CommentsSection from "@/components/pages/Comments";
 import Heading from "@/components/pages/common/image/Heading";
+import ExploreCardSlider from "@/components/pages/ExploreCardSlider";
 import RelatedArticles from "@/components/pages/RelatedArticles";
 import AboutAuthorCarousel from "@/components/pages/Slider";
 import TourGuides from "@/components/pages/TourGuides";
@@ -66,7 +67,7 @@ export default async function BlogPage({
               <Link className="text-[#10152E] text-xl font-semibold" href="/">
                 Explore More
               </Link>
-              <div className="mt-9">
+              <div className="sm:block hidden mt-9">
                 {exploreMoreArticles?.map((el) => (
                   <ArticleCard
                     image={el?.image}
@@ -77,6 +78,9 @@ export default async function BlogPage({
                     key={el?.title}
                   />
                 ))}
+              </div>
+              <div className="sm:hidden block mt-9">
+                <ExploreCardSlider />
               </div>
             </div>
             <div className="mt-8">
