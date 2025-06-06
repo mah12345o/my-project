@@ -170,48 +170,37 @@ export default function CommentsSection() {
         {/* Emoji Rating */}
         <div className="flex items-center p-2 rounded bg-gray-50 justify-between flex-wrap gap-4">
           <p className="font-medium">Rate The Usefulness Of The Article</p>
-          <div className="flex  items-center gap-4 text-xl">
+          <div className="flex text-sm items-center gap-4">
             <button
               type="button"
-              // className=""
-              className={`text-red-500  ${emojiRating === 1 ? "bg-red-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              className={`${emojiRating === 1 ? "bg-[#FF0412] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FF0412]"}`}
               onClick={() => setEmojiRating(1)}
             >
-              <BsEmojiFrown
-                className={emojiRating === 1 ? "text-red-500" : ""}
-              />
+              <BsEmojiFrown />
               {emojiRating == 1 ? " Very bad" : ""}
             </button>
             <button
               type="button"
-              // className="text-[#FFBB00]"
-              className={`text-[#FFBB00] ${emojiRating === 2 ? "bg-yellow-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              className={`${emojiRating === 2 ? "bg-[#FF6700] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FF6700]"}`}
               onClick={() => setEmojiRating(2)}
             >
-              <BsEmojiNeutral
-                className={emojiRating === 2 ? "text-[#FFBB00]" : ""}
-              />
+              <BsEmojiNeutral />
               {emojiRating == 2 ? "Bad" : ""}
             </button>
             <button
               type="button"
-              // className="text-blue-500"
-              className={`text-blue-500 ${emojiRating === 3 ? "bg-blue-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              className={`${emojiRating === 3 ? "bg-[#FFB416] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FFB416]"}`}
               onClick={() => setEmojiRating(3)}
             >
-              <BsEmojiSmile
-                className={emojiRating === 3 ? "text-blue-500" : ""}
-              />
+              <BsEmojiSmile />
               {emojiRating == 3 ? "Average" : ""}
             </button>
             <button
               type="button"
-              className={`text-green-500 ${emojiRating === 4 ? "bg-green-200 gap-2 p-2 flex items-center rounded-2xl" : ""}`}
+              className={`${emojiRating === 4 ? "bg-[#00BA5C] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#00BA5C]"}`}
               onClick={() => setEmojiRating(4)}
             >
-              <BsEmojiLaughing
-                className={emojiRating === 4 ? "text-green-500" : ""}
-              />
+              <BsEmojiLaughing />
               {emojiRating == 4 ? "Good" : ""}
             </button>
           </div>

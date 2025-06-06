@@ -38,7 +38,7 @@ export default async function BlogPage({
         </h1>
       </div>
 
-      <div className="w-full h-[90vh] relative mb-5">
+      <div className="w-full h-[60vh] relative mb-5">
         <Image
           src={post.image}
           alt="Image"
