@@ -9,9 +9,7 @@ interface HeadingProps {
 const Heading = ({ title, className }: HeadingProps) => {
   return (
     <div>
-      <h2 className={twMerge("text-xl font-semibold mt-4 mb-5", className)}>
-        {title}
-      </h2>
+      <h2 className={twMerge("custom-heading", className)}>{title}</h2>
     </div>
   );
 };
