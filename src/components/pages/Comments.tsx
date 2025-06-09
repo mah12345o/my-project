@@ -9,6 +9,7 @@ import {
   BsEmojiLaughing,
   BsEmojiNeutral,
   BsChatDots,
+  BsEmojiHeartEyes,
 } from "react-icons/bs";
 import Heading from "./common/image/Heading";
 import { InputLabel } from "./common/image/InputLabel";
@@ -80,7 +81,19 @@ export default function CommentsSection() {
         paddingBottom: "3rem",
       }}
     >
-      <Heading title="Comments" />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            marginRight: "6px",
+            marginBottom: "2px",
+            height: "10px",
+            width: "4px",
+            backgroundColor: "#000000",
+            borderRadius: "102px",
+          }}
+        />
+        <Heading title="Comments" />
+      </div>
       {isPending && (
         <p
           style={{
@@ -110,7 +123,7 @@ export default function CommentsSection() {
           <div
             style={{
               display: "flex",
-              alignItems: "flex-start",
+              alignItems: "center",
               width: "100%",
               gap: "1rem",
             }}
@@ -135,13 +148,16 @@ export default function CommentsSection() {
             <div style={{ width: "100%" }}>
               {/* <div className="flex sm:justify-between sm:flex-row flex-col"> */}
               <div
+                className="user-date-column"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  flexDirection: "column",
+                  flexDirection: "row",
                 }}
               >
-                <div>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "15px" }}
+                >
                   <p style={{ fontWeight: 500 }}>{el?.name}</p>
                   <div
                     style={{
@@ -189,29 +205,33 @@ export default function CommentsSection() {
           {/* <div className="flex flex-col items-end gap-1 text-right"></div> */}
         </div>
       ))}
-
-      <Heading title="Add A Comment" />
-      <form
-        onSubmit={handleAddComment}
-        style={{ marginLeft: "4rem", marginRight: "4rem" }}
-      >
-        {/* <div className="grid grid-1 sm:grid-cols-2 gap-4"></div> */}
+      <div style={{ display: "flex", alignItems: "center" }}>
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(1, 1fr)",
-            gap: "1rem",
+            marginRight: "6px",
+            marginBottom: "2px",
+            height: "10px",
+            width: "4px",
+            backgroundColor: "#000000",
+            borderRadius: "102px",
           }}
-        >
+        />
+        <Heading title="Add A Comment" />
+      </div>
+
+      <form onSubmit={handleAddComment}>
+        {/* <div className="grid grid-1 sm:grid-cols-2 gap-4"></div> */}
+        <div style={{ gap: "15px", display: "flex", width: "100%" }}>
           <div
             style={{
+              width: "50%",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               gap: "1rem",
             }}
           >
-            <div>
+            <div style={{ width: "100%" }}>
               <InputLabel title="Name" />
               <input
                 type="text"
@@ -249,7 +269,7 @@ export default function CommentsSection() {
               />
             </div>
           </div>
-          <div>
+          <div style={{ width: "50%" }}>
             <InputLabel title="Comment" />
             <textarea
               placeholder="Search Anything..."
@@ -272,94 +292,119 @@ export default function CommentsSection() {
         </div>
 
         {/* Emoji Rating */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            padding: "0.5rem",
-            borderRadius: "0.25rem",
-            backgroundColor: "#F9FAFB",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "1rem",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "0.875rem",
-              fontWeight: 500,
-            }}
-          >
-            Rate The Usefulness Of The Article
-          </p>
+        <div style={{ display: "flex", width: "100%" }}>
           <div
             style={{
+              width: "90%",
               display: "flex",
-              fontSize: "0.875rem",
               alignItems: "center",
+              padding: "0.5rem",
+              borderRadius: "0.25rem",
+              backgroundColor: "#F9FAFB",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "1rem",
+              marginTop: "15px",
+              marginBottom: "15px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: 500,
+              }}
+            >
+              Rate The Usefulness Of The Article
+            </p>
+            <div
+              style={{
+                display: "flex",
+                fontSize: "0.875rem",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <button
+                type="button"
+                className={emojiRating === 1 ? "active-btn" : "inactive-btn"}
+                onClick={() => setEmojiRating(1)}
+              >
+                <BsEmojiFrown />
+                {emojiRating == 1 ? " Very bad" : ""}
+              </button>
+              <button
+                type="button"
+                className={
+                  emojiRating === 2 ? "active-btn-2" : "inactive-btn-2"
+                }
+                onClick={() => setEmojiRating(2)}
+              >
+                <BsEmojiNeutral />
+                {emojiRating == 2 ? "Bad" : ""}
+              </button>
+              <button
+                type="button"
+                className={
+                  emojiRating === 3 ? "active-btn-3" : "inactive-btn-3"
+                }
+                onClick={() => setEmojiRating(3)}
+              >
+                <BsEmojiSmile />
+                {emojiRating == 3 ? "Average" : ""}
+              </button>
+              <button
+                type="button"
+                className={
+                  emojiRating === 4 ? "active-btn-4" : "inactive-btn-4"
+                }
+                onClick={() => setEmojiRating(4)}
+              >
+                <BsEmojiHeartEyes />
+                {emojiRating == 4 ? "Nice" : ""}
+              </button>
+              <button
+                type="button"
+                className={
+                  emojiRating === 5 ? "active-btn-5" : "inactive-btn-5"
+                }
+                onClick={() => setEmojiRating(5)}
+              >
+                <BsEmojiLaughing />
+                {emojiRating == 5 ? "Good" : ""}
+              </button>
+            </div>
+          </div>
+
+          <div
+            style={{
+              width: "10%",
+              display: "flex",
+              marginLeft: "10px",
+              alignItems: "center",
+              justifyContent: "center",
               gap: "1rem",
             }}
           >
             <button
-              type="button"
-              className={emojiRating === 1 ? "active-btn" : "inactive-btn"}
-              onClick={() => setEmojiRating(1)}
+              type="submit"
+              disabled={isPending}
+              style={{
+                backgroundColor: "black",
+                color: "white",
+                width: "100%",
+                height: "fit",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "0.5rem 1rem",
+                borderRadius: "12px",
+                gap: "0.5rem",
+                cursor: "pointer",
+              }}
             >
-              <BsEmojiFrown />
-              {emojiRating == 1 ? " Very bad" : ""}
-            </button>
-            <button
-              type="button"
-              className={emojiRating === 2 ? "active-btn-2" : "inactive-btn-2"}
-              onClick={() => setEmojiRating(2)}
-            >
-              <BsEmojiNeutral />
-              {emojiRating == 2 ? "Bad" : ""}
-            </button>
-            <button
-              type="button"
-              className={emojiRating === 3 ? "active-btn-3" : "inactive-btn-3"}
-              onClick={() => setEmojiRating(3)}
-            >
-              <BsEmojiSmile />
-              {emojiRating == 3 ? "Average" : ""}
-            </button>
-            <button
-              type="button"
-              className={emojiRating === 4 ? "active-btn-4" : "inactive-btn-4"}
-              onClick={() => setEmojiRating(4)}
-            >
-              <BsEmojiLaughing />
-              {emojiRating == 4 ? "Good" : ""}
+              <BsChatDots /> Send
             </button>
           </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "1rem",
-          }}
-        >
-          <button
-            type="submit"
-            disabled={isPending}
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "0.5rem 1rem",
-              borderRadius: "0.5rem",
-              gap: "0.5rem",
-              cursor: "pointer",
-            }}
-          >
-            <BsChatDots /> Send
-          </button>
         </div>
       </form>
     </div>

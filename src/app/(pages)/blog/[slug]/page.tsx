@@ -29,9 +29,13 @@ export default async function BlogPage({
   return (
     <main>
       <div style={{ padding: "2rem 0", textAlign: "center" }}>
-        <p style={{ fontSize: "0.875rem", marginBottom: "0.75rem" }}>
-          <span style={{ color: "#262D4D", fontWeight: 500 }}>HOME</span>
-          <span style={{ color: "#4B5563" }}> / ARTICLES /</span>
+        <p style={{ fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+          <span style={{ color: "#262D4D", fontWeight: 700, fontSize: "14px" }}>
+            HOME
+          </span>
+          <span style={{ color: "#262D4D", fontWeight: 400 }}>
+            / ARTICLES /
+          </span>
         </p>
 
         <h1 style={{ fontSize: "1.875rem", color: "#10152E", fontWeight: 600 }}>
@@ -41,8 +45,6 @@ export default async function BlogPage({
       <div
         className="banner-img"
         style={{
-          width: "100%",
-          height: "60vh",
           margin: "0 auto",
           position: "relative",
           marginBottom: "1.25rem",
@@ -60,8 +62,8 @@ export default async function BlogPage({
       <div
         className="layout_padding"
         style={{
-          paddingLeft: "0.75rem",
-          paddingRight: "0.75rem",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
         }}
       >
         <div
@@ -96,7 +98,7 @@ export default async function BlogPage({
                 Explore More
               </Link>
               <div
-                style={{ display: "block", marginTop: "2.25rem" }}
+                style={{ display: "block", marginTop: "2.5rem" }}
                 className="sm-block"
               >
                 {exploreMoreArticles?.map((el) => (
@@ -123,12 +125,14 @@ export default async function BlogPage({
             </div>
           </div>
         </div>
-        <div style={{ display: "block" }} className="lg-hidden">
+        <div style={{ display: "none" }} className="lg-hidden">
           <AboutAuthorCarousel />
         </div>
         <CommentsSection />
       </div>
-      <RelatedArticles />
+      <div className="related-container">
+        <RelatedArticles />
+      </div>
     </main>
   );
 }

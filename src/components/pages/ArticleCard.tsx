@@ -37,17 +37,26 @@ export const ArticleCard = ({
             }}
           >
             <span
-              style={{ fontWeight: 500, fontSize: "0.9rem", color: "#121212" }}
+              style={{ fontWeight: 500, fontSize: "0.9rem", color: "black" }}
             >
               {authorName}
             </span>
-            <span style={{ color: "#757575" }}>|</span>
+            <div
+              style={{
+                color: "#757575",
 
-            <span>{date}</span>
+                fontWeight: 400,
+                fontSize: "0.9rem",
+              }}
+            >
+              <span>| </span>
+              <span>{date}</span>
+            </div>
           </div>
 
           <p
             style={{
+              fontSize: "1rem",
               color: "#121212",
               fontWeight: 400,
               lineHeight: "1.375",

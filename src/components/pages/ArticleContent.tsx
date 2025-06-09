@@ -36,7 +36,7 @@ export default function ArticleContent({
           </div>
           <span
             style={{
-              color: "#374151",
+              color: "#4E5265",
               fontWeight: 600,
               textTransform: "uppercase",
               fontSize: "0.875rem",
@@ -48,6 +48,7 @@ export default function ArticleContent({
         </div>
         <span
           style={{
+            fontWeight: 600,
             fontSize: "0.875rem",
             lineHeight: "1.25rem",
             textTransform: "uppercase",
@@ -97,8 +98,8 @@ export default function ArticleContent({
             marginBottom: "1.25rem",
             borderTop: "1px solid #E5E6EA",
             borderBottom: "1px solid #E5E6EA",
-            fontWeight: 500,
-            color: "#000000",
+            fontWeight: 600,
+            color: "#4E5265",
             padding: "2rem",
           }}
         >

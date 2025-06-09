@@ -2,9 +2,8 @@
 
 import { authors } from "@/const";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import { NavBtn } from "./common/NavBtn";
 
 export default function AboutAuthorCarousel() {
   const [index, setIndex] = useState(0);
@@ -26,7 +25,7 @@ export default function AboutAuthorCarousel() {
     >
       {/* Author Info */}
       <div className="text-center">
-        <h2 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#111827" }}>
+        <h2 style={{ fontSize: "1.25rem", fontWeight: 400, color: "#10152E" }}>
           About {author?.name}
         </h2>
         <div
@@ -85,7 +84,7 @@ export default function AboutAuthorCarousel() {
         }}
       >
         {/* Previous */}
-        <div
+        {/* <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -104,7 +103,7 @@ export default function AboutAuthorCarousel() {
               border: "1px solid #05091C",
               borderRadius: "2px",
               color: "#05091C",
-              padding: "0.5rem",
+              padding: "0.5rem 1rem",
             }}
           >
             <IoArrowForwardCircleOutline
@@ -114,14 +113,23 @@ export default function AboutAuthorCarousel() {
           </p>
           <Link
             href={author?.prev?.href}
-            style={{ color: "#2563EB", fontSize: "0.875rem" }}
+            style={{
+              color: "#262D4D",
+              fontWeight: "400",
+              fontSize: "0.875rem",
+            }}
           >
             {author?.prev?.title}
           </Link>
-        </div>
-
+        </div> */}
+        <NavBtn
+          onClick={handlePrev}
+          title="Previous"
+          isPrevBtn
+          href={author?.prev?.href}
+        />
         {/* Next */}
-        <div
+        {/* <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -161,7 +169,8 @@ export default function AboutAuthorCarousel() {
               {author?.next?.title}
             </Link>
           </div>
-        </div>
+        </div> */}
+        <NavBtn onClick={handleNext} title="Next" href={author?.next?.href} />
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const relatedArticles = [
 
 export default function RelatedArticles() {
   return (
-    <div className="related-container">
+    <div className="layout_padding">
       <h2 className="related-title">Related articles Related articles</h2>
       <div className="related-grid">
         {relatedArticles?.map((item) => (
