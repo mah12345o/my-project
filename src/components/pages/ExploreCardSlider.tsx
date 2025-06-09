@@ -19,7 +19,13 @@ export default function ExploreCardSlider() {
   };
 
   return (
-    <div className="border-t border-[#E5E6EA] pt-10 mt-10">
+    <div
+      style={{
+        borderTop: "1px solid #E5E6EA",
+        paddingTop: "2.5rem",
+        marginTop: "2.5rem",
+      }}
+    >
       <ArticleCard
         image={el?.image}
         authorName={el?.author}
@@ -29,24 +35,68 @@ export default function ExploreCardSlider() {
         key={el?.title}
       />
       {/* Previous/Next Blog Nav */}
-      <div className="flex justify-between items-center border-[#E5E6EA] mt-10 pt-6 border-t">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderTop: "1px solid #E5E6EA",
+          marginTop: "2.5rem",
+          paddingTop: "1.5rem",
+        }}
+      >
         {/* Previous */}
         <div
-          className="flex flex-col items-start gap-2 cursor-pointer"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
           onClick={handlePrev}
         >
-          <p className="text-sm flex items-center  gap-2 border rounded-[2px] border-[#05091C] text-[#05091C] p-2">
+          <p
+            style={{
+              fontSize: "0.875rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              border: "1px solid #05091C",
+              borderRadius: "2px",
+              color: "#05091C",
+              padding: "0.5rem",
+            }}
+          >
             <IoArrowForwardCircleOutline className="rotate-180" /> Previous
           </p>
         </div>
 
         {/* Next */}
         <div
-          className="flex items-center gap-2 text-right cursor-pointer"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            textAlign: "right",
+            cursor: "pointer",
+          }}
           onClick={handleNext}
         >
           <div className="flex flex-col items-end">
-            <p className="text-sm flex gap-2 items-center border w-fit rounded-[2px] border-[#05091C] text-[#05091C] p-2">
+            <p
+              style={{
+                fontSize: "0.875rem",
+                display: "flex",
+                gap: "0.5rem",
+                alignItems: "center",
+                border: "1px solid #05091C",
+                width: "fit-content",
+                borderRadius: "2px",
+                color: "#05091C",
+                padding: "0.5rem",
+              }}
+            >
               Next
               <IoArrowForwardCircleOutline />
             </p>

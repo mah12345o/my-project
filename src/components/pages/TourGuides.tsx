@@ -30,26 +30,73 @@ const guides = [
 
 export default function TourGuides() {
   return (
-    <div className="max-w-md mx-auto py-6">
-      <div className="space-y-6">
+    <div
+      style={{
+        maxWidth: "28rem",
+        marginLeft: "auto",
+        marginRight: "auto",
+        paddingTop: "1.5rem",
+        paddingBottom: "1.5rem",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1.5rem",
+        }}
+      >
         {guides?.map((guide) => (
           <div key={guide.id}>
-            <div className="flex items-center gap-4">
-              <div className="size-14 relative">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <div
+                style={{
+                  height: "40px",
+                  width: "40px",
+                  position: "relative",
+                }}
+              >
                 <Image
                   src={guide.image}
                   alt={guide.name}
                   fill
-                  className="rounded-full object-cover"
+                  style={{
+                    borderRadius: "9999px",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
               <div>
-                <p className="font-normal text-[1rem] text-black">
+                <p
+                  style={{ fontWeight: 400, fontSize: "1rem", color: "black" }}
+                >
                   {guide.name}
                 </p>
-                <div className="flex items-center font-normal text-gray-500 text-sm">
-                  <MdLocationOn className="mr-1" />
-                  <span className="truncate max-w-[180px]">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    fontWeight: 400,
+                    color: "#6B7280",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  <MdLocationOn style={{ marginRight: "0.25rem" }} />
+                  <span
+                    style={{
+                      maxWidth: "180px",
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
+                      display: "inline-block",
+                    }}
+                  >
                     {guide.location}
                   </span>
                 </div>
@@ -57,23 +104,43 @@ export default function TourGuides() {
             </div>
 
             {/* Stars */}
-            <div className="flex items-center gap-1 mt-2">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.25rem",
+                marginTop: "0.5rem",
+              }}
+            >
               {Array.from({ length: 5 }).map((_, index) => (
                 <FaStar
                   key={index}
-                  className={
-                    index < Math.round(guide.rating)
-                      ? "text-yellow-400"
-                      : "text-gray-300"
-                  }
+                  style={{
+                    color:
+                      index < Math.round(guide.rating) ? "#FBBF24" : "#D1D5DB",
+                  }}
                 />
               ))}
-              <span className="text-gray-700 ml-1 text-sm">
+              <span
+                style={{
+                  color: "#374151",
+                  marginLeft: "0.25rem",
+                  fontSize: "0.875rem",
+                }}
+              >
                 ({guide.rating.toFixed(1)})
               </span>
             </div>
 
-            <hr className="my-4 h-[1px] text-[#DEDEDE]" />
+            <hr
+              style={{
+                marginTop: "1rem",
+                marginBottom: "1rem",
+                height: "1px",
+                border: "none",
+                backgroundColor: "#DEDEDE",
+              }}
+            />
           </div>
         ))}
       </div>

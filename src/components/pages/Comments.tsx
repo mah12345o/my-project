@@ -12,16 +12,7 @@ import {
 } from "react-icons/bs";
 import Heading from "./common/image/Heading";
 import { InputLabel } from "./common/image/InputLabel";
-
-interface Comment {
-  id: number;
-  name: string;
-  email: string;
-  comment: string;
-  rating: number;
-  avatar: string;
-  date: string;
-}
+import { Comment } from "@/Interface";
 
 export default function CommentsSection() {
   const [comments, setComments] = useState<Comment[]>([
@@ -78,10 +69,27 @@ export default function CommentsSection() {
   // };
 
   return (
-    <div className="w-full mx-auto px-4 py-12">
+    <div
+      style={{
+        width: "100%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
+        paddingTop: "3rem",
+        paddingBottom: "3rem",
+      }}
+    >
       <Heading title="Comments" />
       {isPending && (
-        <p className="text-sm text-blue-500 mb-4 animate-pulse">
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "#3B82F6",
+            marginBottom: "1rem",
+            animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          }}
+        >
           Updating comments...
         </p>
       )}
@@ -89,63 +97,136 @@ export default function CommentsSection() {
       {comments?.map((el) => (
         <div
           key={el?.id}
-          className="border-b w-full border-[#DEDEDE] pb-6 mb-4 flex justify-between items-start"
+          style={{
+            borderBottom: "1px solid #DEDEDE",
+            width: "100%",
+            paddingBottom: "1.5rem",
+            marginBottom: "1rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+          }}
         >
-          <div className="flex items-start w-full gap-4">
-            <div className="min-h-14 min-w-14 relative">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              width: "100%",
+              gap: "1rem",
+            }}
+          >
+            <div
+              style={{
+                minHeight: "3.5rem",
+                minWidth: "3.5rem",
+                position: "relative",
+              }}
+            >
               <Image
                 src="/icon/icon2.png"
                 alt={el?.name}
                 fill
-                className="rounded-full object-cover"
+                style={{
+                  borderRadius: "9999px",
+                  objectFit: "cover",
+                }}
               />
             </div>
-            <div className="w-full">
-              <div className="flex sm:justify-between sm:flex-row flex-col">
+            <div style={{ width: "100%" }}>
+              {/* <div className="flex sm:justify-between sm:flex-row flex-col"> */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column",
+                }}
+              >
                 <div>
-                  <p className="font-medium">{el?.name}</p>
-                  <div className="flex items-center gap-1 text-[#FFBB00] text-sm">
+                  <p style={{ fontWeight: 500 }}>{el?.name}</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.25rem",
+                      color: "#FFBB00",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     {Array?.from({ length: 5 })?.map((_, i) => (
                       <FaStar
                         key={i}
-                        className={
-                          i < el?.rating ? "text-[#FFBB00]" : "text-gray-300"
-                        }
+                        style={{
+                          color: i < el?.rating ? "#FFBB00" : "#D1D5DB", // yellow (#FFBB00) or gray (#D1D5DB)
+                        }}
                       />
                     ))}
-                    <span className="text-gray-700 ml-1">
+                    <span style={{ color: "#374151", marginLeft: "0.25rem" }}>
                       ({el?.rating.toFixed(1)})
                     </span>
                   </div>
                 </div>
-                <p className="text-sm font-medium text-[#757575]">{el?.date}</p>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 500,
+                    color: "#757575",
+                  }}
+                >
+                  {el?.date}
+                </p>
               </div>
-              <p className="text-gray-600 text-sm mt-1">{el?.comment}</p>
+              <p
+                style={{
+                  color: "#4B5563",
+                  fontSize: "0.875rem",
+                  marginTop: "0.25rem",
+                }}
+              >
+                {el?.comment}
+              </p>
             </div>
           </div>
-          <div className="flex flex-col items-end gap-1 text-right">
-            {/* <button
-              onClick={() => handleDelete(el?.id)}
-              className="text-red-500 text-sm"
-              title="Delete"
-            >
-              <BsTrash />
-            </button> */}
-          </div>
+          {/* <div className="flex flex-col items-end gap-1 text-right"></div> */}
         </div>
       ))}
 
       <Heading title="Add A Comment" />
-      <form onSubmit={handleAddComment} className="space-y-4">
-        <div className="grid grid-1 sm:grid-cols-2 gap-4">
-          <div className="flex flex-col justify-between gap-4">
+      <form
+        onSubmit={handleAddComment}
+        style={{ marginLeft: "4rem", marginRight: "4rem" }}
+      >
+        {/* <div className="grid grid-1 sm:grid-cols-2 gap-4"></div> */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(1, 1fr)",
+            gap: "1rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+            }}
+          >
             <div>
               <InputLabel title="Name" />
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full  border-nonepx-4 py-2 rounded-md bg-gray-50"
+                style={{
+                  width: "100%",
+                  border: "none",
+                  paddingLeft: "1rem",
+                  paddingRight: "1rem",
+                  paddingTop: "0.5rem",
+                  paddingBottom: "0.5rem",
+                  borderRadius: "0.375rem",
+                  backgroundColor: "#F9FAFB",
+                }}
                 required
               />
             </div>
@@ -155,7 +236,16 @@ export default function CommentsSection() {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border-none px-4 py-2 rounded-md bg-gray-50"
+                style={{
+                  width: "100%",
+                  border: "none",
+                  paddingLeft: "1rem",
+                  paddingRight: "1rem",
+                  paddingTop: "0.5rem",
+                  paddingBottom: "0.5rem",
+                  borderRadius: "0.375rem",
+                  backgroundColor: "#F9FAFB",
+                }}
               />
             </div>
           </div>
@@ -165,21 +255,54 @@ export default function CommentsSection() {
               placeholder="Search Anything..."
               value={form.comment}
               onChange={(e) => setForm({ ...form, comment: e.target.value })}
-              className="w-full h-[78%]  border-none px-4 py-2 rounded-md bg-gray-50"
+              style={{
+                width: "100%",
+                height: "78%",
+                border: "none",
+                paddingLeft: "1rem",
+                paddingRight: "1rem",
+                paddingTop: "0.5rem",
+                paddingBottom: "0.5rem",
+                borderRadius: "0.375rem",
+                backgroundColor: "#F9FAFB",
+              }}
               required
             />
           </div>
         </div>
 
         {/* Emoji Rating */}
-        <div className="flex items-center p-2 rounded bg-gray-50 justify-between flex-wrap gap-4">
-          <p className="text-sm sm:text-lg font-medium">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            padding: "0.5rem",
+            borderRadius: "0.25rem",
+            backgroundColor: "#F9FAFB",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "1rem",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "0.875rem",
+              fontWeight: 500,
+            }}
+          >
             Rate The Usefulness Of The Article
           </p>
-          <div className="flex text-sm items-center gap-4">
+          <div
+            style={{
+              display: "flex",
+              fontSize: "0.875rem",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
             <button
               type="button"
-              className={`${emojiRating === 1 ? "bg-[#FF0412] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FF0412]"}`}
+              className={emojiRating === 1 ? "active-btn" : "inactive-btn"}
               onClick={() => setEmojiRating(1)}
             >
               <BsEmojiFrown />
@@ -187,7 +310,7 @@ export default function CommentsSection() {
             </button>
             <button
               type="button"
-              className={`${emojiRating === 2 ? "bg-[#FF6700] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FF6700]"}`}
+              className={emojiRating === 2 ? "active-btn-2" : "inactive-btn-2"}
               onClick={() => setEmojiRating(2)}
             >
               <BsEmojiNeutral />
@@ -195,7 +318,7 @@ export default function CommentsSection() {
             </button>
             <button
               type="button"
-              className={`${emojiRating === 3 ? "bg-[#FFB416] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#FFB416]"}`}
+              className={emojiRating === 3 ? "active-btn-3" : "inactive-btn-3"}
               onClick={() => setEmojiRating(3)}
             >
               <BsEmojiSmile />
@@ -203,7 +326,7 @@ export default function CommentsSection() {
             </button>
             <button
               type="button"
-              className={`${emojiRating === 4 ? "bg-[#00BA5C] text-white gap-2 px-3 py-1 flex items-center rounded-2xl" : "text-[#00BA5C]"}`}
+              className={emojiRating === 4 ? "active-btn-4" : "inactive-btn-4"}
               onClick={() => setEmojiRating(4)}
             >
               <BsEmojiLaughing />
@@ -212,11 +335,28 @@ export default function CommentsSection() {
           </div>
         </div>
 
-        <div className="flex justify-center sm:justify-end gap-4">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
           <button
             type="submit"
             disabled={isPending}
-            className="bg-black w-full justify-center sm:w-fit text-white px-4 py-2 rounded-lg flex items-center gap-2"
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "0.5rem 1rem",
+              borderRadius: "0.5rem",
+              gap: "0.5rem",
+              cursor: "pointer",
+            }}
           >
             <BsChatDots /> Send
           </button>

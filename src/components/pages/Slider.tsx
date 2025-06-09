@@ -19,39 +19,102 @@ export default function AboutAuthorCarousel() {
   };
 
   return (
-    <div className="sm:border-t border-[#E5E6EA] pt-10 sm:mt-10">
+    // <div className="sm:border-t border-[#E5E6EA] pt-10 sm:mt-10">
+    <div
+      className="custom-div"
+      style={{ borderColor: "#E5E6EA", paddingTop: "2.5rem" }}
+    >
       {/* Author Info */}
-      <div className="text-center transition-all duration-300">
-        <h2 className="text-xl font-semibold text-gray-900">
+      <div className="text-center">
+        <h2 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#111827" }}>
           About {author?.name}
         </h2>
-        <div className="flex justify-center my-7">
-          <div className="relative size-[6.25rem]">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1.75rem",
+            marginBottom: "1.75rem",
+          }}
+        >
+          <div
+            style={{
+              position: "relative",
+              width: "6.25rem",
+              height: "6.25rem",
+            }}
+          >
             <Image
               src={author?.image}
               alt={author?.name}
               fill
-              className="rounded-full object-cover mx-auto mb-4"
+              style={{
+                borderRadius: "9999px",
+                objectFit: "cover",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginBottom: "1rem",
+              }}
             />
           </div>
         </div>
 
-        <p className="italic text-gray-600 max-w-3xl mx-auto">{author?.bio}</p>
+        <p
+          style={{
+            fontStyle: "italic",
+            color: "#4B5563",
+            maxWidth: "48rem",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {author?.bio}
+        </p>
       </div>
 
       {/* Previous/Next Blog Nav */}
-      <div className="flex justify-between items-center border-[#E5E6EA] mt-10 pt-6 border-t">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderColor: "#E5E6EA",
+          marginTop: "2.5rem",
+          paddingTop: "1.5rem",
+          borderTop: "1px solid #E5E6EA",
+        }}
+      >
         {/* Previous */}
         <div
-          className="flex flex-col items-start gap-2 cursor-pointer"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
           onClick={handlePrev}
         >
-          <p className="text-sm flex items-center  gap-2 border rounded-[2px] border-[#05091C] text-[#05091C] p-2">
-            <IoArrowForwardCircleOutline className="rotate-180" /> Previous
+          <p
+            style={{
+              fontSize: "0.875rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              border: "1px solid #05091C",
+              borderRadius: "2px",
+              color: "#05091C",
+              padding: "0.5rem",
+            }}
+          >
+            <IoArrowForwardCircleOutline
+              style={{ transform: "rotate(180deg)" }}
+            />
+            Previous
           </p>
           <Link
             href={author?.prev?.href}
-            className="text-blue-600 hover:underline text-sm"
+            style={{ color: "#2563EB", fontSize: "0.875rem" }}
           >
             {author?.prev?.title}
           </Link>
@@ -59,17 +122,41 @@ export default function AboutAuthorCarousel() {
 
         {/* Next */}
         <div
-          className="flex items-center gap-2 text-right cursor-pointer"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            textAlign: "right",
+            cursor: "pointer",
+          }}
           onClick={handleNext}
         >
-          <div className="flex flex-col items-end">
-            <p className="text-sm flex gap-2 items-center border w-fit rounded-[2px] border-[#05091C] text-[#05091C] p-2">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.875rem",
+                display: "flex",
+                gap: "0.5rem",
+                alignItems: "center",
+                border: "1px solid #05091C",
+                width: "fit-content",
+                borderRadius: "2px",
+                color: "#05091C",
+                padding: "0.5rem",
+              }}
+            >
               Next
               <IoArrowForwardCircleOutline />
             </p>
             <Link
               href={author?.next?.href}
-              className="text-blue-600 hover:underline text-sm"
+              style={{ color: "#2563EB", fontSize: "0.875rem" }}
             >
               {author?.next?.title}
             </Link>

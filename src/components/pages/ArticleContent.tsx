@@ -12,26 +12,61 @@ export default function ArticleContent({
   autherIcon: string;
 }) {
   return (
-    <article className="mx-auto bg-white">
+    <article style={{ margin: "auto", backgroundColor: "white" }}>
       {/* Author & Date */}
-      <div className="flex text-[#4E5265] justify-between items-center mb-6 border-b border-[#E5E6EA] pb-5">
-        <div className="flex items-center space-x-3">
-          <div className="relative size-8">
+      <div className="author-date-container">
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <div style={{ position: "relative", width: "2rem", height: "2rem" }}>
             <Image
               src={autherIcon} // Place this in /public or replace with external URL
               fill
               alt="Author Avatar"
-              className="rounded-full object-cover"
+              style={{
+                borderRadius: "50%",
+                objectFit: "cover",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
             />
           </div>
-          <span className="text-gray-700 font-semibold uppercase text-sm">
+          <span
+            style={{
+              color: "#374151",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              fontSize: "0.875rem",
+              lineHeight: "1.25rem",
+            }}
+          >
             {authorName}
           </span>
         </div>
-        <span className="text-sm uppercase">{date}</span>
+        <span
+          style={{
+            fontSize: "0.875rem",
+            lineHeight: "1.25rem",
+            textTransform: "uppercase",
+          }}
+        >
+          {date}
+        </span>
       </div>
 
-      <div className="space-y-6 text-[16px] leading-relaxed text-[#10152E]">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1.5rem",
+          fontSize: "16px",
+          lineHeight: "1.625",
+          color: "#10152E",
+        }}
+      >
         {/* Content */}
         <p>
           Discover exercises that target every muscle group, helping you build
@@ -55,7 +90,18 @@ export default function ArticleContent({
           et magnis dis parturient montes, nascetur ridiculus
         </p>
         {/* Highlighted Section */}
-        <blockquote className="italic my-5 border-y border-[#E5E6EA] font-medium text-black p-8">
+        <blockquote
+          style={{
+            fontStyle: "italic",
+            marginTop: "1.25rem",
+            marginBottom: "1.25rem",
+            borderTop: "1px solid #E5E6EA",
+            borderBottom: "1px solid #E5E6EA",
+            fontWeight: 500,
+            color: "#000000",
+            padding: "2rem",
+          }}
+        >
           With over a decade of experience in the fitness industry, Alex
           specializes in strength training and functional fitness. Certified by
           NASM and known for his motivational style, Alex designs workout

@@ -17,25 +17,46 @@ export const ArticleCard = ({
 }) => {
   return (
     <Link href={`/blog/${slug}`}>
-      <div className="bg-white overflow-hidden">
-        <div className="relative w-full">
+      <div style={{ backgroundColor: "#FFFFFF", overflow: "hidden" }}>
+        <div style={{ position: "relative", width: "100%" }}>
           <NextFillImage
             alt="Image"
             src={image}
-            className="w-full sm:w-[18.5rem] h-40"
+            className="article-card-image"
           />
         </div>
 
-        <div className="pb-7 pt-5">
-          <div className="flex items-center space-x-2 text-sm mb-2">
-            <span className="font-medium text-[0.9rem] text-[#121212]">
+        <div style={{ paddingBottom: "1.75rem", paddingTop: "1.25rem" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "0.875rem",
+              marginBottom: "0.5rem",
+            }}
+          >
+            <span
+              style={{ fontWeight: 500, fontSize: "0.9rem", color: "#121212" }}
+            >
               {authorName}
             </span>
-            <span className="text-[#757575]">|</span>
+            <span style={{ color: "#757575" }}>|</span>
+
             <span>{date}</span>
           </div>
 
-          <p className="text-[#121212] font-normal line-clamp-2 leading-snug">
+          <p
+            style={{
+              color: "#121212",
+              fontWeight: 400,
+              lineHeight: "1.375",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
             {content}
           </p>
         </div>

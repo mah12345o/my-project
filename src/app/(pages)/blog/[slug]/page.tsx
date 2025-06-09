@@ -28,46 +28,77 @@ export default async function BlogPage({
 
   return (
     <main>
-      <div className="py-8 text-center">
-        <p className="text-sm mb-3">
-          <span className="text-[#262D4D] font-medium">HOME</span>
-          <span className="text-gray-700"> / ARTICLES /</span>
+      <div style={{ padding: "2rem 0", textAlign: "center" }}>
+        <p style={{ fontSize: "0.875rem", marginBottom: "0.75rem" }}>
+          <span style={{ color: "#262D4D", fontWeight: 500 }}>HOME</span>
+          <span style={{ color: "#4B5563" }}> / ARTICLES /</span>
         </p>
 
-        <h1 className="text-3xl text-[##10152E] font-semibold">
+        <h1 style={{ fontSize: "1.875rem", color: "#10152E", fontWeight: 600 }}>
           {post?.title}
         </h1>
       </div>
-
-      <div className="sm:w-[95%] lg:w-full h-[60vh] mx-auto relative mb-5">
+      <div
+        className="banner-img"
+        style={{
+          width: "100%",
+          height: "60vh",
+          margin: "0 auto",
+          position: "relative",
+          marginBottom: "1.25rem",
+        }}
+      >
         <Image
-          src={post.image}
+          src={post?.image}
           alt="Image"
           priority
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
         />
       </div>
 
-      <div className="layout_padding px-3 sm:px-6">
-        <div className="flex sm:flex-row flex-col gap-10">
-          <article className="flex flex-col">
+      <div
+        className="layout_padding"
+        style={{
+          paddingLeft: "0.75rem",
+          paddingRight: "0.75rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "2.5rem",
+          }}
+          className="sm-flex-row"
+        >
+          <article style={{ display: "flex", flexDirection: "column" }}>
             <ArticleContent
               autherIcon={post?.autherIcon}
               authorName={post?.author}
               content={post?.content}
               date={post?.date}
             />
-            <div className="lg:block hidden">
+            <div className="lg-block" style={{ display: "block" }}>
               <AboutAuthorCarousel />
             </div>
           </article>
-          <div className="w-[22rem]">
+          <div style={{ width: "22rem" }}>
             <div>
-              <Link className="text-[#10152E] text-xl font-semibold" href="/">
+              <Link
+                href="/"
+                style={{
+                  color: "#10152E",
+                  fontSize: "1.25rem",
+                  fontWeight: 600,
+                }}
+              >
                 Explore More
               </Link>
-              <div className="sm:block hidden mt-9">
+              <div
+                style={{ display: "block", marginTop: "2.25rem" }}
+                className="sm-block"
+              >
                 {exploreMoreArticles?.map((el) => (
                   <ArticleCard
                     image={el?.image}
@@ -79,17 +110,20 @@ export default async function BlogPage({
                   />
                 ))}
               </div>
-              <div className="sm:hidden block mt-9">
+              <div
+                style={{ display: "none", marginTop: "2.25rem" }}
+                className="sm-hidden"
+              >
                 <ExploreCardSlider />
               </div>
             </div>
-            <div className="mt-8">
+            <div style={{ marginTop: "2rem" }}>
               <Heading title="Tour Guides" />
               <TourGuides />
             </div>
           </div>
         </div>
-        <div className="lg:hidden block">
+        <div style={{ display: "block" }} className="lg-hidden">
           <AboutAuthorCarousel />
         </div>
         <CommentsSection />
