@@ -13,7 +13,7 @@ import {
 } from "react-icons/bs";
 import Heading from "./common/image/Heading";
 import { InputLabel } from "./common/image/InputLabel";
-
+// dynamic import
 const CommentList = dynamic(
   () =>
     import("../../components/pages/CommentList").then((mod) => mod.CommentList),
