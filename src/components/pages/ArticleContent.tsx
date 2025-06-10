@@ -18,7 +18,7 @@ export default function ArticleContent({
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
           <div style={{ position: "relative", width: "2rem", height: "2rem" }}>
             <Image
-              src={autherIcon} // Place this in /public or replace with external URL
+              src={autherIcon}
               fill
               alt="Author Avatar"
               style={{

@@ -449,10 +449,6 @@ button {
   .lg-block {
     display: none !important;
   }
-  .sm-hidden,
-  .sm-block {
-    display: none;
-  }
 }
 .author-date-container {
   display: flex;
@@ -473,17 +469,13 @@ button {
   text-align: center;
   transition: all 300ms;
 }
-.article-card-image {
-  width: 18.5rem;
-  height: 10rem;
-}
 .active-btn {
   background-color: #ff0412;
   color: white;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -500,7 +492,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -517,7 +509,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -539,7 +531,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -550,7 +542,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -616,6 +608,103 @@ button {
 .card:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.articles-container {
+  display: none;
+}
+@media (min-width: 640px) {
+  .articles-container {
+    display: block;
+  }
+}
+.slider-container {
+  display: block;
+}
+@media (min-width: 640px) {
+  .slider-container {
+    display: none;
+  }
+}
+.comment-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+.comment-inputs > div {
+  width: 100%;
+}
+.comment-textarea-stye {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .comment-inputs {
+    flex-direction: row !important;
+  }
+  .comment-inputs > div {
+    width: 50%;
+  }
+  .comment-textarea-stye {
+    width: 50%;
+  }
+}
+.rating-btn-submit-btn-grp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .rating-btn-submit-btn-grp {
+    flex-direction: row;
+  }
+  .submit-btn {
+    width: 10% !important;
+  }
+  .rating-btns {
+    justify-content: space-between !important;
+  }
+  .explore-section {
+    width: 22rem;
+  }
+  .article-card-image {
+    width: 18.5rem;
+    height: 10rem;
+  }
+}
+.submit-btn {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.rating-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f9fafb;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.explore-section {
+  width: 100%;
+}
+.article-card-image {
+  width: 100%;
+  height: 10rem;
 }
 @property --tw-rotate-x {
   syntax: "*";

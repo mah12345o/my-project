@@ -88,8 +88,8 @@ export default async function BlogPage({
             </div>
           </article>
           {/* Explore More  */}
-          <div style={{ width: "22rem" }}>
-            <div>
+          <div className="explore-section">
+            <div style={{ width: "100%" }}>
               <Link
                 href="/"
                 style={{
@@ -101,8 +101,8 @@ export default async function BlogPage({
                 Explore More
               </Link>
               <div
-                style={{ display: "block", marginTop: "2.5rem" }}
-                className="sm-block"
+                style={{ marginTop: "2.5rem" }}
+                className="articles-container"
               >
                 {exploreMoreArticles?.map((el) => (
                   <ArticleCard
@@ -116,8 +116,8 @@ export default async function BlogPage({
                 ))}
               </div>
               <div
-                style={{ display: "none", marginTop: "2.25rem" }}
-                className="sm-hidden"
+                style={{ marginTop: "2.25rem" }}
+                className="slider-container"
               >
                 <ExploreCardSlider />
               </div>

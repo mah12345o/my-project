@@ -221,17 +221,16 @@ export default function CommentsSection() {
 
       <form onSubmit={handleAddComment}>
         {/* <div className="grid grid-1 sm:grid-cols-2 gap-4"></div> */}
-        <div style={{ gap: "15px", display: "flex", width: "100%" }}>
+        <div className="comment-inputs">
           <div
             style={{
-              width: "50%",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               gap: "1rem",
             }}
           >
-            <div style={{ width: "100%" }}>
+            <div>
               <InputLabel title="Name" />
               <input
                 type="text"
@@ -269,7 +268,7 @@ export default function CommentsSection() {
               />
             </div>
           </div>
-          <div style={{ width: "50%" }}>
+          <div className="comment-textarea-stye">
             <InputLabel title="Comment" />
             <textarea
               placeholder="Search Anything..."
@@ -292,22 +291,8 @@ export default function CommentsSection() {
         </div>
 
         {/* Emoji Rating */}
-        <div style={{ display: "flex", width: "100%" }}>
-          <div
-            style={{
-              width: "90%",
-              display: "flex",
-              alignItems: "center",
-              padding: "0.5rem",
-              borderRadius: "0.25rem",
-              backgroundColor: "#F9FAFB",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "1rem",
-              marginTop: "15px",
-              marginBottom: "15px",
-            }}
-          >
+        <div className="rating-btn-submit-btn-grp">
+          <div className="rating-btns">
             <p
               style={{
                 fontSize: "0.875rem",
@@ -375,36 +360,9 @@ export default function CommentsSection() {
             </div>
           </div>
 
-          <div
-            style={{
-              width: "10%",
-              display: "flex",
-              marginLeft: "10px",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "1rem",
-            }}
-          >
-            <button
-              type="submit"
-              disabled={isPending}
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                width: "100%",
-                height: "fit",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: "0.5rem 1rem",
-                borderRadius: "12px",
-                gap: "0.5rem",
-                cursor: "pointer",
-              }}
-            >
-              <BsChatDots /> Send
-            </button>
-          </div>
+          <button type="submit" disabled={isPending} className="submit-btn">
+            <BsChatDots /> Send
+          </button>
         </div>
       </form>
     </div>
