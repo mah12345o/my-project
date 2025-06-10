@@ -132,7 +132,6 @@ export default function CommentsSection() {
       </div>
 
       <form onSubmit={handleAddComment}>
-        {/* <div className="grid grid-1 sm:grid-cols-2 gap-4"></div> */}
         <div className="comment-inputs">
           <div
             style={{

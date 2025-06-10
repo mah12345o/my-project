@@ -30,14 +30,14 @@ export default async function BlogPage({
     <main>
       <div style={{ padding: "2rem 0", textAlign: "center" }}>
         {/* heading */}
-        <h1 style={{ fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "0.875rem", marginBottom: "0.25rem" }}>
           <span style={{ color: "#262D4D", fontWeight: 700, fontSize: "14px" }}>
             HOME
           </span>
           <span style={{ color: "#262D4D", fontWeight: 400 }}>
             / ARTICLES /
           </span>
-        </h1>
+        </p>
 
         <h1 style={{ fontSize: "1.875rem", color: "#10152E", fontWeight: 600 }}>
           {post?.title}
