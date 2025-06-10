@@ -36,98 +36,6 @@ button {
   transition: all 300ms;
 }
 
-.active-btn {
-  background-color: #ff0412;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-.inactive-btn {
-  color: #ff0412;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.active-btn-2 {
-  background-color: #ff6700;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-.inactive-btn-2 {
-  color: #ff6700;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.active-btn-3 {
-  background-color: #ffb416;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.inactive-btn-3 {
-  color: #ffb416;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.inactive-btn-4 {
-  color: #1c9af4;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.active-btn-4 {
-  background-color: #1c9af4;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-}
-.active-btn-5 {
-  background-color: #00ba5c;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-.inactive-btn-5 {
-  color: #00ba5c;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .custom-heading {
   font-size: 20px;
   font-weight: 500;
@@ -233,6 +141,98 @@ button {
 .article-card-image {
   width: 100%;
   height: 10rem;
+}
+
+.active-btn {
+  background-color: #ff0412;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.inactive-btn {
+  color: #ff0412;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.active-btn-2 {
+  background-color: #ff6700;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.inactive-btn-2 {
+  color: #ff6700;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.active-btn-3 {
+  background-color: #ffb416;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.inactive-btn-3 {
+  color: #ffb416;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.inactive-btn-4 {
+  color: #1c9af4;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.active-btn-4 {
+  background-color: #1c9af4;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+.active-btn-5 {
+  background-color: #00ba5c;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.inactive-btn-5 {
+  color: #00ba5c;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 @media (min-width: 1400px) {
