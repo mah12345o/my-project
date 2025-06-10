@@ -1,1 +1,8 @@
-{}
+{
+  "components/pages/Comments.tsx -> ../../components/pages/CommentList": {
+    "id": "components/pages/Comments.tsx -> ../../components/pages/CommentList",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_pages_CommentList_tsx.js"
+    ]
+  }
+}

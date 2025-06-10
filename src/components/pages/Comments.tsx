@@ -1,19 +1,27 @@
 "use client";
 
+import { Comment } from "@/Interface";
+import dynamic from "next/dynamic";
 import { useState, useTransition } from "react";
-import Image from "next/image";
-import { FaStar } from "react-icons/fa";
 import {
-  BsEmojiSmile,
+  BsChatDots,
   BsEmojiFrown,
+  BsEmojiHeartEyes,
   BsEmojiLaughing,
   BsEmojiNeutral,
-  BsChatDots,
-  BsEmojiHeartEyes,
+  BsEmojiSmile,
 } from "react-icons/bs";
 import Heading from "./common/image/Heading";
 import { InputLabel } from "./common/image/InputLabel";
-import { Comment } from "@/Interface";
+
+const CommentList = dynamic(
+  () =>
+    import("../../components/pages/CommentList").then((mod) => mod.CommentList),
+  {
+    ssr: false,
+    loading: () => <p>Loading comments...</p>,
+  }
+);
 
 export default function CommentsSection() {
   const [comments, setComments] = useState<Comment[]>([
@@ -107,104 +115,8 @@ export default function CommentsSection() {
         </p>
       )}
 
-      {comments?.map((el) => (
-        <div
-          key={el?.id}
-          style={{
-            borderBottom: "1px solid #DEDEDE",
-            width: "100%",
-            paddingBottom: "1.5rem",
-            marginBottom: "1rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              gap: "1rem",
-            }}
-          >
-            <div
-              style={{
-                minHeight: "3.5rem",
-                minWidth: "3.5rem",
-                position: "relative",
-              }}
-            >
-              <Image
-                src="/icon/icon2.png"
-                alt={el?.name}
-                fill
-                style={{
-                  borderRadius: "9999px",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-            <div style={{ width: "100%" }}>
-              {/* <div className="flex sm:justify-between sm:flex-row flex-col"> */}
-              <div
-                className="user-date-column"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "row",
-                }}
-              >
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "15px" }}
-                >
-                  <p style={{ fontWeight: 500 }}>{el?.name}</p>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.25rem",
-                      color: "#FFBB00",
-                      fontSize: "0.875rem",
-                    }}
-                  >
-                    {Array?.from({ length: 5 })?.map((_, i) => (
-                      <FaStar
-                        key={i}
-                        style={{
-                          color: i < el?.rating ? "#FFBB00" : "#D1D5DB", // yellow (#FFBB00) or gray (#D1D5DB)
-                        }}
-                      />
-                    ))}
-                    <span style={{ color: "#374151", marginLeft: "0.25rem" }}>
-                      ({el?.rating.toFixed(1)})
-                    </span>
-                  </div>
-                </div>
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    fontWeight: 500,
-                    color: "#757575",
-                  }}
-                >
-                  {el?.date}
-                </p>
-              </div>
-              <p
-                style={{
-                  color: "#4B5563",
-                  fontSize: "0.875rem",
-                  marginTop: "0.25rem",
-                }}
-              >
-                {el?.comment}
-              </p>
-            </div>
-          </div>
-          {/* <div className="flex flex-col items-end gap-1 text-right"></div> */}
-        </div>
-      ))}
+      <CommentList comments={comments} />
+
       <div style={{ display: "flex", alignItems: "center" }}>
         <div
           style={{

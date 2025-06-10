@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/pages/Comments.tsx -> ../../components/pages/CommentList\":{\"id\":\"components/pages/Comments.tsx -> ../../components/pages/CommentList\",\"files\":[\"static/chunks/_app-pages-browser_src_components_pages_CommentList_tsx.js\"]}}"
