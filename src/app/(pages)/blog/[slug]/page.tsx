@@ -29,19 +29,21 @@ export default async function BlogPage({
   return (
     <main>
       <div style={{ padding: "2rem 0", textAlign: "center" }}>
-        <p style={{ fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+        {/* heading */}
+        <h1 style={{ fontSize: "0.875rem", marginBottom: "0.25rem" }}>
           <span style={{ color: "#262D4D", fontWeight: 700, fontSize: "14px" }}>
             HOME
           </span>
           <span style={{ color: "#262D4D", fontWeight: 400 }}>
             / ARTICLES /
           </span>
-        </p>
+        </h1>
 
         <h1 style={{ fontSize: "1.875rem", color: "#10152E", fontWeight: 600 }}>
           {post?.title}
         </h1>
       </div>
+      {/* banner section */}
       <div
         className="banner-img"
         style={{
@@ -58,7 +60,6 @@ export default async function BlogPage({
           style={{ objectFit: "cover" }}
         />
       </div>
-
       <div
         className="layout_padding"
         style={{
@@ -72,8 +73,9 @@ export default async function BlogPage({
             flexDirection: "row",
             gap: "2.5rem",
           }}
-          className="sm-flex-row"
+          className="sm-flex-row blog-content"
         >
+          {/* blog content */}
           <article style={{ display: "flex", flexDirection: "column" }}>
             <ArticleContent
               autherIcon={post?.autherIcon}
@@ -85,6 +87,7 @@ export default async function BlogPage({
               <AboutAuthorCarousel />
             </div>
           </article>
+          {/* Explore More  */}
           <div style={{ width: "22rem" }}>
             <div>
               <Link

@@ -32,8 +32,17 @@ button {
   height: 560px;
 }
 
+@media (max-width: 767px) {
+  .blog-content {
+    flex-direction: column !important;
+  }
+  .author-date-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 @media (max-width: 768px) {
-  .sm-flex-row {
+  .blog-content {
     flex-direction: column;
   }
   .user-date-column {
